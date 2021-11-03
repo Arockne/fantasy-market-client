@@ -35,6 +35,14 @@ function App() {
     )
   }
 
+  function Shop() {
+    return (
+      <div>
+        <p>Shop Name</p>
+      </div>
+    )
+  }
+
   return (
     <div className="App">
       <Header />
