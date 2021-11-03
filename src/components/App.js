@@ -17,11 +17,20 @@ function App() {
       </nav>
     )
   }
+
+  function Search() {
+    return (
+      <form>
+        <input />
+      </form>
+    )
+  }
+
   return (
     <div className="App">
       <Header />
       <Navbar />
-      
+      <Search />
     </div>
   );
 }
