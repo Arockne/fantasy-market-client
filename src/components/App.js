@@ -10,9 +10,8 @@ function App() {
     return (
       <nav>
         <ul>
-          <li>Shop1</li>
-          <li>Shop2</li>
-          <li>Shop3</li>
+          <li>Home</li>
+          <li>Shops</li>
         </ul>
       </nav>
     )
@@ -31,6 +30,7 @@ function App() {
       <Header />
       <Navbar />
       <Search />
+
     </div>
   );
 }
