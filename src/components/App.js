@@ -25,12 +25,22 @@ function App() {
     )
   }
 
+  function Shops() {
+    return (
+      <div>
+        <p>Click on a shop to go to</p>
+        {/*Multiple shop*/}
+        <Shop />
+      </div>
+    )
+  }
+
   return (
     <div className="App">
       <Header />
       <Navbar />
       <Search />
-
+      <Shops />
     </div>
   );
 }
