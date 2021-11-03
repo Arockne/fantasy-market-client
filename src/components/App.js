@@ -1,3 +1,5 @@
+
+
 function App() {
   
   function Header() {
@@ -48,9 +50,20 @@ function App() {
     return (
       <div>
         {/*Multiple Item component*/}
+        <ItemCard />
       </div>
     )
   }
+
+  function ItemCard() {
+    return (
+      <div>
+        {/**/}
+      </div>
+    )
+  }
+
+  
 
   return (
     <div className="App">
