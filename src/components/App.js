@@ -39,6 +39,15 @@ function App() {
     return (
       <div>
         <p>Shop Name</p>
+        <Items />
+      </div>
+    )
+  }
+
+  function Items() {
+    return (
+      <div>
+        {/*Multiple Item component*/}
       </div>
     )
   }
