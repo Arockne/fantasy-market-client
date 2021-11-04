@@ -15,10 +15,8 @@ function App() {
     .then(data => setShops(data))
   },[])
 
-  console.log(shops)
-
   return (
-    <div className="App">
+    <div className='app'>
       <Header />
       <Navbar />
       <Search />
@@ -28,9 +26,13 @@ function App() {
           element={"Hello World!"}
         />
         <Route 
-          path="shops"
+          path='shops'
           element={<Shops shops={shops}/>} 
         />  
+        <Route
+          path='shop/:name/:id'
+          element={<Items shops={shops}/>}
+        />
       </Routes>
     </div>
   );
