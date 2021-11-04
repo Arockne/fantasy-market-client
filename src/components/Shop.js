@@ -5,7 +5,7 @@ function Shop({ shop }) {
   const {name, id} = shop
   return (
     <div>
-      <Link to={`/shop/${name}/${id}`}>{name}</Link>
+      <Link to={`/shops/${name}/${id}`}>{name}</Link>
     </div>
   )
 }
