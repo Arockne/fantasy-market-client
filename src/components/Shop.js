@@ -1,10 +1,11 @@
 import React from 'react'
 import Items from './Items'
 
-function Shop() {
+function Shop({ shop }) {
+  console.log(shop.name)
   return (
     <div>
-      <p>Shop Name</p>
+      <p></p>
       <Items />
     </div>
   )

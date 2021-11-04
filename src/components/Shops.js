@@ -1,12 +1,11 @@
 import React from 'react'
 import Shop from './Shop'
 
-function Shops() {
+function Shops({ shops }) {
   return (
     <div>
       <p>Click on a shop to go to</p>
-      {/*Multiple shop*/}
-      <Shop />
+      {shops.map(shop => <Shop key={shop.id} shop={shop}/>)}
     </div>
   )
 }
