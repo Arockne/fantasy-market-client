@@ -30,7 +30,7 @@ function App() {
           element={<Shops shops={shops}/>} 
         />  
         <Route
-          path='shop/:name/:id'
+          path='shops/:name/:id'
           element={<Items shops={shops}/>}
         />
       </Routes>
