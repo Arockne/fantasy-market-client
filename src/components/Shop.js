@@ -1,5 +1,4 @@
 import React from 'react'
-import Items from './Items'
 
 function Shop({ shop }) {
   const {name} = shop
