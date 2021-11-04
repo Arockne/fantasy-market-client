@@ -2,11 +2,10 @@ import React from 'react'
 import Items from './Items'
 
 function Shop({ shop }) {
-  console.log(shop.name)
+  const {name} = shop
   return (
     <div>
-      <p></p>
-      <Items />
+      <h3>{name}</h3>
     </div>
   )
 }
