@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Shop({ shop }) {
-  const {name} = shop
+  const {name, id} = shop
   return (
     <div>
-      <h3>{name}</h3>
+      <Link to={`/shop/${name}/${id}`}>{name}</Link>
     </div>
   )
 }
