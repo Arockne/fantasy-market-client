@@ -1,8 +1,12 @@
 import React from 'react'
+import Navbar from './Navbar'
 
 function Header() {
   return (
-    <header>Fantasylist</header>
+    <header>
+      <h1>Fantasylist</h1>
+      <Navbar />
+    </header>
   )
 }
 
