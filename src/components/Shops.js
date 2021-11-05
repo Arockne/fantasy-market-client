@@ -1,5 +1,6 @@
 import React from 'react'
 import Shop from './Shop'
+import { Outlet } from 'react-router-dom'
 
 function Shops({ shops }) {
   return (
@@ -8,6 +9,7 @@ function Shops({ shops }) {
       <nav>
         {shops.map(shop => <Shop key={shop.id} shop={shop}/>)}
       </nav>
+      <Outlet />
     </div>
   )
 }
