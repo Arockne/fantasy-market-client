@@ -15,5 +15,3 @@ function Item({ item }) {
 }
 
 export default Item
-
-//['Wed', 'Nov', '03', '2021', '08:52:45', 'GMT-0700', '(Mountain', 'Standard', 'Time)']
