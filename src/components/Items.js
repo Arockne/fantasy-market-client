@@ -1,7 +1,7 @@
 import Item from './Item'
 import { useParams } from 'react-router-dom'
 
-function Items({ shops }) {
+function Items({ shops, onDeletion }) {
   const {id} = useParams()
   const shop = shops.find(shop => {
     return shop.id === parseInt(id, 10)
@@ -10,7 +10,7 @@ function Items({ shops }) {
   return (
     <div>
       <h2>{shop.name}</h2>
-      {shop.items.map(item => <Item key={item.id} item={item}/>)}
+      {shop.items.map(item => <Item key={item.id} item={item} onDeletion={onDeletion}/>)}
     </div>
   )
 }
