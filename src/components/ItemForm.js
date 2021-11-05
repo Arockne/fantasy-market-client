@@ -60,6 +60,7 @@ function ItemForm({ shops }) {
         onChange={handleFormChange}
         value={form.desc}
       />
+      <input type='submit' value='Add Item'/>
     </form>
   )
 }
