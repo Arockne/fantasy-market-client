@@ -16,6 +16,14 @@ function App() {
             path='shops'
             element={<Shops />} 
           > 
+            <Route 
+              index
+              element={
+                <main>
+                  <p>Select a shop</p>
+                </main>
+              }
+            />
             <Route
               path=':id'
               element={<Items />}
