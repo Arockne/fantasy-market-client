@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Navbar from './Navbar'
@@ -7,14 +7,6 @@ import Shops from './Shops'
 import Items from './Items'
 
 function App() {
-  const [shops, setShops] = useState([])
-
-  useEffect(() => {
-    fetch('http://localhost:9292/shops')
-    .then(resp => resp.json())
-    .then(data => setShops(data))
-  },[])
-
   return (
     <div className='app'>
       <Header />
@@ -27,11 +19,11 @@ function App() {
         />
         <Route 
           path='shops'
-          element={<Shops shops={shops}/>} 
+          element={<Shops />} 
         > 
           <Route
             path=':id'
-            element={<Items shops={shops}/>}
+            element={<Items />}
           />
         </Route>  
       </Routes>
