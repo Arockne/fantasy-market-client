@@ -17,6 +17,20 @@ function App() {
     return <p>Loading...</p>
   }
 
+  function onDeletion(deletedItem) {
+    const shopMatch = shops.find(({id}) => id === deletedItem.shop_id);
+    shopMatch.items = shopMatch.items.filter(({id}) => {
+      return id !== deletedItem.id
+    })
+    const shopsWithUpdate = shops.map(shop => {
+      if (shop.id === shopMatch.id) {
+        return shopMatch
+      }
+      return shop
+    })
+    setShops(shopsWithUpdate)
+  }
+
   return (
     <div className='app'>
       <Routes>
@@ -38,7 +52,7 @@ function App() {
             />
             <Route
               path=':id'
-              element={<Items shops={shops} />}
+              element={<Items shops={shops} onDeletion={onDeletion}/>}
             />
           </Route>  
         </Route>
