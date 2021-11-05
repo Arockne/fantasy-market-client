@@ -5,7 +5,9 @@ function Shops({ shops }) {
   return (
     <div>
       <p>Click on a shop to go to</p>
-      {shops.map(shop => <Shop key={shop.id} shop={shop}/>)}
+      <nav>
+        {shops.map(shop => <Shop key={shop.id} shop={shop}/>)}
+      </nav>
     </div>
   )
 }
