@@ -37,7 +37,10 @@ function ItemForm({ shops }) {
         value={form.shopID}
       >
         {shops.map(shop => {
-         return <option key={shop.id} value={shop.id}>{shop.name} - {shop.specialization}</option> 
+          return <option 
+            key={shop.id} 
+            value={shop.id}
+          >{shop.name} - {shop.specialization}</option> 
         })}
       </select>
 
