@@ -7,21 +7,21 @@ import Items from './Items'
 function App() {
   return (
     <div className='app'>
-      <Header />
       <Routes>
-        <Route 
+        <Route
           path='/'
-          element={"Hello World!"}
-        />
-        <Route 
-          path='shops'
-          element={<Shops />} 
-        > 
-          <Route
-            path=':id'
-            element={<Items />}
-          />
-        </Route>  
+          element={<Header />}
+        >
+          <Route 
+            path='shops'
+            element={<Shops />} 
+          > 
+            <Route
+              path=':id'
+              element={<Items />}
+            />
+          </Route>  
+        </Route>
       </Routes>
     </div>
   );
