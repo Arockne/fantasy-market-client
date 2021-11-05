@@ -28,11 +28,12 @@ function App() {
         <Route 
           path='shops'
           element={<Shops shops={shops}/>} 
-        />  
-        <Route
-          path='shops/:name/:id'
-          element={<Items shops={shops}/>}
-        />
+        > 
+          <Route
+            path=':id'
+            element={<Items shops={shops}/>}
+          />
+        </Route>  
       </Routes>
     </div>
   );
