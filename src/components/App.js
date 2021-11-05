@@ -26,7 +26,7 @@ function App() {
         >
           <Route 
             path='shops'
-            element={<Shops />} 
+            element={<Shops shops={shops}/>} 
           > 
             <Route 
               index
