@@ -1,9 +1,22 @@
 import React from 'react'
 import { creationDate } from '../helpers'
 
-function Item({ item }) {
-  const { name, desc, pounds, cost, created_at, category } = item
+function Item({ item, onDeletion }) {
+  const { name, desc, pounds, cost, created_at, category, id } = item
   const {month, monthDay} = creationDate(created_at)
+
+  function handleDelete(e) {
+    fetch(`http://localhost:9292/items/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      onDeletion(data)
+    })
+  }
 
   return (
     <div>
@@ -13,7 +26,9 @@ function Item({ item }) {
       <p>{desc}</p>
       <div>
         <button>Edit</button>
-        <button>Delete</button>
+        <button
+          onClick={handleDelete}
+        >Delete</button>
       </div>
     </div>
   )
