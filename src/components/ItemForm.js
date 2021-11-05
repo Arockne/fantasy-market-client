@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function ItemForm() {
+  const [form, setForm] = useState({
+    name: '',
+    shop_id: '',
+    cost: '',
+    category: '',
+    desc: ''
+  })
+
   return (
     <form>
       <label>Name: </label>
