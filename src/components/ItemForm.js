@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
+import { 
+  changeKeysToSnake, 
+  emptyItemFormFields 
+} from '../helpers.js'
 
 function ItemForm({ shops }) {
-  const [form, setForm] = useState({
-    name: '',
-    shopId: '',
-    cost: '',
-    category: '',
-    desc: ''
-  })
+  const [form, setForm] = useState(emptyItemFormFields())
 
   function handleFormChange(e) {
     const {name, value} = e.target
@@ -21,6 +19,9 @@ function ItemForm({ shops }) {
 
   function handleSubmit(e) {
     e.preventDefault()
+
+    const postForm = changeKeysToSnake(form)
+    console.log(postForm)
     // fetch('http://localhost:9292/items', {
     //   method: 'POST',
     //   headers: {
@@ -62,6 +63,15 @@ function ItemForm({ shops }) {
         name='cost'
         onChange={handleFormChange}
         value={form.cost}
+      />
+
+      <label htmlFor='pounds'>Pounds: </label>
+      <input 
+        id='pounds'
+        type='number'
+        name='pounds'
+        onChange={handleFormChange}
+        value={form.pounds}
       />
 
       <label htmlFor='desc'>Item Description: </label>
