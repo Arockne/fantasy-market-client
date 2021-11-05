@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 
 function Navbar() {
   const activeStyle = {
@@ -8,20 +8,23 @@ function Navbar() {
   };
 
   return (
-    <nav>
-      <NavLink
-        to='/'
-        style={({ isActive }) => 
-          isActive ? activeStyle : undefined
-        }
-      >Home</NavLink>
-      <NavLink
-        to='shops'
-        style={({ isActive }) => 
-          isActive ? activeStyle : undefined
-        }
-      >Shops</NavLink>
-    </nav>
+    <div>
+      <nav>
+        <NavLink
+          to='/'
+          style={({ isActive }) => 
+            isActive ? activeStyle : undefined
+          }
+        >Home</NavLink>
+        <NavLink
+          to='shops'
+          style={({ isActive }) => 
+            isActive ? activeStyle : undefined
+          }
+        >Shops</NavLink>
+      </nav>
+      <Outlet />
+    </div>
   )
 }
 
