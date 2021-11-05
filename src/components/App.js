@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Shops from './Shops'
 import Items from './Items'
 
 function App() {
+  const [shops, setShops] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/shops/items')
+    .then(resp => resp.json())
+    .then(data => setShops(data))
+  }, [])
+
+  if (!shops.length) {
+    return <p>Loading...</p>
+  }
+
   return (
     <div className='app'>
       <Routes>
@@ -26,7 +38,7 @@ function App() {
             />
             <Route
               path=':id'
-              element={<Items />}
+              element={<Items shops={shops} />}
             />
           </Route>  
         </Route>
