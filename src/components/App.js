@@ -58,7 +58,7 @@ function App() {
           </Route>  
           <Route 
             path='item/new'
-            element={<ItemForm />}
+            element={<ItemForm shops={shops}/>}
           />
         </Route>
       </Routes>
