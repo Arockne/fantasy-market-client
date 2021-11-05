@@ -10,7 +10,7 @@ function App() {
   const [shops, setShops] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:9292/shops/items')
+    fetch('http://localhost:9292/shops')
     .then(resp => resp.json())
     .then(data => setShops(data))
   },[])
