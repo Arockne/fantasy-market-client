@@ -56,11 +56,11 @@ function App() {
               element={<Items shops={shops} onDeletion={onDeletion}/>}
             />
           </Route>  
+          <Route 
+            path='item/new'
+            element={<ItemForm />}
+          />
         </Route>
-        <Route 
-          path='item/new'
-          element={<ItemForm />}
-        />
       </Routes>
     </div>
   );
