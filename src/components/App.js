@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Shops from './Shops'
 import Items from './Items'
+import ItemForm from './ItemForm'
 
 function App() {
   const [shops, setShops] = useState([])
@@ -56,6 +57,10 @@ function App() {
             />
           </Route>  
         </Route>
+        <Route 
+          path='item/new'
+          element={<ItemForm />}
+        />
       </Routes>
     </div>
   );
