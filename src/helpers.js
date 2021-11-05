@@ -18,7 +18,7 @@ export function changeItemFormKeysToSnake(obj) {
     desc: obj.desc,
     pounds: obj.pounds,
     cost: obj.cost,
-    shop_id: obj.shopID,
+    shop_id: obj.shopId,
     category: obj.category
   }
 }

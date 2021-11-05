@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 function ItemForm({ shops }) {
   const [form, setForm] = useState({
     name: '',
-    shopID: '',
+    shopId: '',
     cost: '',
     category: '',
     desc: ''
@@ -12,15 +12,26 @@ function ItemForm({ shops }) {
   function handleFormChange(e) {
     const {name, value} = e.target
     const updatedForm = {...form, [name]: value}
-    if (name === 'shopID') {
+    if (name === 'shopId') {
       const shop = shops.find(({id}) => id === parseInt(value, 10))
       updatedForm.category = shop.specialization
     }
     setForm(updatedForm)
   }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    // fetch('http://localhost:9292/items', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    //   body: JSON.stringify
+    // })
+  }
   
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor='name'>Name: </label>
       <input 
         id='name'
@@ -32,9 +43,9 @@ function ItemForm({ shops }) {
       <label htmlFor='shop'>Shop: </label>
       <select 
         id='shop' 
-        name='shopID'
+        name='shopId'
         onChange={handleFormChange}
-        value={form.shopID}
+        value={form.shopId}
       >
         {shops.map(shop => {
           return <option 
