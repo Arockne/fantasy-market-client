@@ -12,13 +12,22 @@ export function creationDate(dateStr) {
   }
 }
 
-export function changeItemFormKeysToSnake(obj) {
+export function changeKeysToSnake(obj) {
+  const snakeCase = {}
+  for (const [key, value] of Object.entries(obj)) {
+    const keyToSnake = key.split(/(?=[A-Z])/).join('_').toLowerCase();
+    snakeCase[keyToSnake] = value
+  }
+  return snakeCase
+}
+
+export function emptyItemFormFields() {
   return {
-    name: obj.name,
-    desc: obj.desc,
-    pounds: obj.pounds,
-    cost: obj.cost,
-    shop_id: obj.shopId,
-    category: obj.category
+    name: '',
+    shopId: '',
+    cost: '',
+    category: '',
+    desc: '',
+    pounds: ''
   }
 }
