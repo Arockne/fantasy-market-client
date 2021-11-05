@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Shop({ shop }) {
   const {name, id} = shop
-  return (
-    <div>
-      <Link to={`/shops/${id}`}>{name}</Link>
-    </div>
-  )
+  return <Link to={`/shops/${id}`}>{name}</Link>
 }
 
 export default Shop
