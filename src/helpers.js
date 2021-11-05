@@ -11,3 +11,14 @@ export function creationDate(dateStr) {
     timeZone: `${dateArr[6]} ${dateArr[7]} ${dateArr[8]}`
   }
 }
+
+export function changeItemFormKeysToSnake(obj) {
+  return {
+    name: obj.name,
+    desc: obj.desc,
+    pounds: obj.pounds,
+    cost: obj.cost,
+    shop_id: obj.shopID,
+    category: obj.category
+  }
+}
