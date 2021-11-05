@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function ItemForm() {
+function ItemForm({ shops }) {
   const [form, setForm] = useState({
     name: '',
     shopID: '',
@@ -11,22 +11,27 @@ function ItemForm() {
 
   return (
     <form>
-      <label for='name'>Name: </label>
+      <label htmlFor='name'>Name: </label>
       <input 
         id='name'
         name='name'
         type='text'
       />
-      <label for='shop'>Shop: </label>
-      <select id='shop' name='shopID'/>
+      <label htmlFor='shop'>Shop: </label>
+      <select id='shop' name='shopID'>
+        {shops.map(shop => {
+         return <option key={shop.id} value={shop.id}>{shop.name} - {shop.specialization}</option> 
+        })}
+      </select>
 
-      <label for='cost'>Cost: </label>
-      <input id='cost' type='number'/>
+      <label htmlFor='cost'>Cost: </label>
+      <input
+        id='cost' 
+        type='number' 
+        name='cost'
+      />
 
-      <label for='category'>Item Category: </label>
-      <select id='category' name='category'/>
-
-      <label for='desc'>Item Description: </label>
+      <label htmlFor='desc'>Item Description: </label>
       <textarea id='desc' name='desc'/>
     </form>
   )
