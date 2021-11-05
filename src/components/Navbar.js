@@ -22,6 +22,12 @@ function Navbar() {
             isActive ? activeStyle : undefined
           }
         >Shops</NavLink>
+        <NavLink
+          to='item/new'
+          style={({ isActive }) => 
+            isActive ? activeStyle : undefined
+          }
+        >Add Item</NavLink>
       </nav>
       <Outlet />
     </div>
