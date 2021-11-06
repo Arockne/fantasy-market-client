@@ -3,29 +3,34 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 function Navbar() {
   const activeStyle = {
-    textDecoration: "underline",
-    color: 'red'
+    textDecoration: 'none',
+    color: '#f15a08'
   };
+
+  const notActiveStyle = {
+    textDecoration: 'none',
+    color: '#867d73'
+  }
 
   return (
     <div>
-      <nav>
+      <nav className='header-nav'>
         <NavLink
           to='/'
           style={({ isActive }) => 
-            isActive ? activeStyle : undefined
+            isActive ? activeStyle : notActiveStyle
           }
         >Home</NavLink>
         <NavLink
           to='shops'
           style={({ isActive }) => 
-            isActive ? activeStyle : undefined
+            isActive ? activeStyle : notActiveStyle
           }
         >Shops</NavLink>
         <NavLink
           to='item/new'
           style={({ isActive }) => 
-            isActive ? activeStyle : undefined
+            isActive ? activeStyle : notActiveStyle
           }
         >Add Item</NavLink>
       </nav>
