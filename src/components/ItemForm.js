@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { 
   changeCamelKeysToSnake, 
-  emptyItemFormFields,
-  changeSnakeKeysToCamel 
+  emptyItemFormFields
 } from '../helpers.js'
 
-function ItemForm({ shops }) {
+function ItemForm({ shops, handleAdditionalItem }) {
   const [form, setForm] = useState(emptyItemFormFields())
 
   function handleFormChange(e) {
@@ -31,10 +30,8 @@ function ItemForm({ shops }) {
     })
     .then(resp => resp.json())
     .then(data => {
+      handleAdditionalItem(data)
       setForm(emptyItemFormFields())
-      data = changeSnakeKeysToCamel(data)
-      console.log(data)
-      //handleAdditionalItem(data)
     })
   }
   
