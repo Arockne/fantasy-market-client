@@ -36,7 +36,7 @@ export function changeSnakeKeysToCamel(obj) {
 export function emptyItemFormFields() {
   return {
     name: '',
-    shopId: '',
+    shopId: 1,
     cost: '',
     category: '',
     desc: '',
