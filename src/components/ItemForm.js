@@ -1,11 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams, useLocation } from 'react-router-dom'
 import { 
   changeCamelKeysToSnake, 
-  emptyItemFormFields
+  emptyItemFormFields,
+  changeSnakeKeysToCamel
 } from '../helpers.js'
 
 function ItemForm({ shops, handleAdditionalItem }) {
   const [form, setForm] = useState(emptyItemFormFields())
+  const {id} = useParams()
+  const {pathname} = useLocation()
+  const editingItem = pathname === `/item/edit/${id}`; 
+
+  useEffect(() => {
+    if (editingItem) {
+      fetch(`http://localhost:9292/items/${id}`)
+      .then(resp => resp.json())
+      .then(data => {
+        data = changeSnakeKeysToCamel(data)
+        setForm(data)
+      })
+    } else {
+      setForm(emptyItemFormFields())
+    }
+  }, [id, pathname, editingItem])
 
   function handleFormChange(e) {
     const {name, value} = e.target
@@ -85,7 +103,7 @@ function ItemForm({ shops, handleAdditionalItem }) {
         onChange={handleFormChange}
         value={form.desc}
       />
-      <input type='submit' value='Add Item'/>
+      <input type='submit' value={`${editingItem ? 'Edit' : 'Add'} Item`}/>
     </form>
   )
 }
