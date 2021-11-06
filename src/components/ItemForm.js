@@ -49,7 +49,8 @@ function ItemForm({ shops, handleAdditionalItem }) {
       })
       .then(resp => resp.json())
       .then(data => {
-        console.log(data)
+        handleAdditionalItem(data)
+        setForm(emptyItemFormFields())
       })
     } else {
       fetch('http://localhost:9292/items', {
