@@ -44,6 +44,17 @@ function App() {
     setShops(shopsWithUpdate)
   }
 
+  function updateItem(updatedItem) {
+    const shopMatch = shops.find(({id}) => id === updatedItem.shop_id)
+    shopMatch.items = shopMatch.items.map(item => {
+      if (updatedItem.id === item.id) {
+        return updatedItem
+      }
+      return item
+    })
+    setShops(shops)
+  }
+
   return (
     <div className='app'>
       <Routes>
@@ -74,7 +85,7 @@ function App() {
           />
           <Route
             path='/item/edit/:id'
-            element={<ItemForm shops={shops}/>}
+            element={<ItemForm shops={shops} handleAdditionalItem={updateItem}/>}
           />
         </Route>
       </Routes>
