@@ -43,3 +43,10 @@ export function emptyItemFormFields() {
     pounds: ''
   }
 }
+
+export function updateMatchingId(obj, objUpdate) {
+  if (obj.id === objUpdate.id) {
+    return objUpdate
+  }
+  return obj
+}
