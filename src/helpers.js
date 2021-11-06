@@ -12,7 +12,7 @@ export function creationDate(dateStr) {
   }
 }
 
-export function changeKeysToSnake(obj) {
+export function changeCamelKeysToSnake(obj) {
   const snakeCase = {}
   for (const [key, value] of Object.entries(obj)) {
     const keyToSnake = key.split(/(?=[A-Z])/).join('_').toLowerCase();
@@ -21,7 +21,7 @@ export function changeKeysToSnake(obj) {
   return snakeCase
 }
 
-export function changeSnakeToCamel(obj) {
+export function changeSnakeKeysToCamel(obj) {
   const camelCase = {}
   for (const [key, value] of Object.entries(obj)) {
     const keyToCamel = key.split('_').map((word, index) => {
