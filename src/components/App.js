@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Header from './Header'
+import Main from './Main'
 import Shops from './Shops'
 import Items from './Items'
 import ItemForm from './ItemForm'
@@ -47,7 +47,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={<Header />}
+          element={<Main />}
         >
           <Route 
             path='shops'
