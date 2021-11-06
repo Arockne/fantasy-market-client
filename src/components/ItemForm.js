@@ -22,13 +22,20 @@ function ItemForm({ shops }) {
     e.preventDefault()
 
     const postForm = changeCamelKeysToSnake(form)
-    // fetch('http://localhost:9292/items', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    //   body: JSON.stringify
-    // })
+    fetch('http://localhost:9292/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postForm)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      setForm(emptyItemFormFields())
+      data = changeSnakeKeysToCamel(data)
+      console.log(data)
+      //handleAdditionalItem(data)
+    })
   }
   
   return (
