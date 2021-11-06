@@ -39,18 +39,32 @@ function ItemForm({ shops, handleAdditionalItem }) {
     e.preventDefault()
 
     const postForm = changeCamelKeysToSnake(form)
-    fetch('http://localhost:9292/items', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postForm)
-    })
-    .then(resp => resp.json())
-    .then(data => {
-      handleAdditionalItem(data)
-      setForm(emptyItemFormFields())
-    })
+    if (editingItem) {
+      fetch(`http://localhost:9292/items/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postForm)
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(data)
+      })
+    } else {
+      fetch('http://localhost:9292/items', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postForm)
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        handleAdditionalItem(data)
+        setForm(emptyItemFormFields())
+      })
+    }
   }
   
   return (
