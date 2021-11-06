@@ -4,6 +4,7 @@ import Header from './Header'
 import Shops from './Shops'
 import Items from './Items'
 import ItemForm from './ItemForm'
+import { updateMatchingId } from '../helpers'
 
 function App() {
   const [shops, setShops] = useState([])
@@ -23,41 +24,21 @@ function App() {
     shopMatch.items = shopMatch.items.filter(({id}) => {
       return id !== deletedItem.id
     })
-    const shopsWithUpdate = shops.map(shop => {
-      if (shop.id === shopMatch.id) {
-        return shopMatch
-      }
-      return shop
-    })
+    const shopsWithUpdate = shops.map(shop => updateMatchingId(shop, deletedItem))
     setShops(shopsWithUpdate)
   }
 
   function handleAdditionalItem(item) {
     const shopMatch = shops.find(({id}) => id === item.shop_id);
     shopMatch.items = [ ...shopMatch.items, item ]
-    const shopsWithUpdate = shops.map(shop => {
-      if (shop.id === shopMatch.id) {
-        return shopMatch
-      }
-      return shop
-    })
+    const shopsWithUpdate = shops.map(shop => updateMatchingId(shop, shopMatch))
     setShops(shopsWithUpdate)
   }
 
   function handleUpdateItem(updatedItem) {
     const shopMatch = shops.find(({id}) => id === updatedItem.shop_id)
-    shopMatch.items = shopMatch.items.map(item => {
-      if (updatedItem.id === item.id) {
-        return updatedItem
-      }
-      return item
-    })
-    const shopsWithUpdate = shops.map(shop => {
-      if (shop.id === shopMatch.id) {
-        return shopMatch
-      }
-      return shop
-    })
+    shopMatch.items = shopMatch.items.map(item => updateMatchingId(item, updatedItem))
+    const shopsWithUpdate = shops.map(shop => updateMatchingId(shop, shopMatch))
     setShops(shopsWithUpdate)
   }
 
