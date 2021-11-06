@@ -50,3 +50,7 @@ export function updateMatchingId(obj, objUpdate) {
   }
   return obj
 }
+
+export function findShop(shops, item) {
+  return shops.find(({id}) => id === item.shop_id)
+}
