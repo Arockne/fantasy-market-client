@@ -21,6 +21,18 @@ export function changeKeysToSnake(obj) {
   return snakeCase
 }
 
+export function changeSnakeToCamel(obj) {
+  const camelCase = {}
+  for (const [key, value] of Object.entries(obj)) {
+    const keyToCamel = key.split('_').map((word, index) => {
+      if (index === 0) return word
+      else return word[0].toUpperCase() + word.slice(1)
+    }).join('')
+    camelCase[keyToCamel] = value
+  }
+  return camelCase
+}
+
 export function emptyItemFormFields() {
   return {
     name: '',

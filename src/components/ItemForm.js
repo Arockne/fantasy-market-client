@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { 
   changeKeysToSnake, 
-  emptyItemFormFields 
+  emptyItemFormFields,
+  changeSnakeToCamel 
 } from '../helpers.js'
 
 function ItemForm({ shops }) {
@@ -21,7 +22,6 @@ function ItemForm({ shops }) {
     e.preventDefault()
 
     const postForm = changeKeysToSnake(form)
-    console.log(postForm)
     // fetch('http://localhost:9292/items', {
     //   method: 'POST',
     //   headers: {
