@@ -87,11 +87,11 @@ function App() {
           </Route>  
           <Route 
             path='item/new'
-            element={<ItemForm shops={shops} handleAdditionalItem={handleAdditionalItem}/>}
+            element={<ItemForm shops={shops} handleItem={handleAdditionalItem}/>}
           />
           <Route
             path='/item/edit/:id'
-            element={<ItemForm shops={shops} handleAdditionalItem={handleUpdateItem}/>}
+            element={<ItemForm shops={shops} handleItem={handleUpdateItem}/>}
           />
         </Route>
       </Routes>

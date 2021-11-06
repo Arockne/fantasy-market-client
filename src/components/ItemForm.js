@@ -6,7 +6,7 @@ import {
   changeSnakeKeysToCamel
 } from '../helpers.js'
 
-function ItemForm({ shops, handleAdditionalItem }) {
+function ItemForm({ shops, handleItem }) {
   const [form, setForm] = useState(emptyItemFormFields())
   const {id} = useParams()
   const {pathname} = useLocation()
@@ -49,7 +49,7 @@ function ItemForm({ shops, handleAdditionalItem }) {
       })
       .then(resp => resp.json())
       .then(data => {
-        handleAdditionalItem(data)
+        handleItem(data)
         setForm(emptyItemFormFields())
       })
     } else {
@@ -62,7 +62,7 @@ function ItemForm({ shops, handleAdditionalItem }) {
       })
       .then(resp => resp.json())
       .then(data => {
-        handleAdditionalItem(data)
+        handleItem(data)
         setForm(emptyItemFormFields())
       })
     }
