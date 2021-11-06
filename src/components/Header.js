@@ -5,7 +5,6 @@ function Header() {
   return (
     <header>
       <h1>Fantasylist</h1>
-      <Navbar />
     </header>
   )
 }
