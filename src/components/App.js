@@ -72,6 +72,10 @@ function App() {
             path='item/new'
             element={<ItemForm shops={shops} handleAdditionalItem={handleAdditionalItem}/>}
           />
+          <Route
+            path='/item/edit/:id'
+            element={<ItemForm shops={shops}/>}
+          />
         </Route>
       </Routes>
     </div>
