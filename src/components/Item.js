@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { creationDate } from '../helpers'
 
 function Item({ item, onDeletion }) {
@@ -25,7 +26,7 @@ function Item({ item, onDeletion }) {
       <p>{`${pounds} lbs`}</p>
       <p>{desc}</p>
       <div>
-        <button>Edit</button>
+        <Link to={`/item/edit/${id}`}>Edit</Link>
         <button
           onClick={handleDelete}
         >Delete</button>
