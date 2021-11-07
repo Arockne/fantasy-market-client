@@ -8,8 +8,7 @@ function Items({ shops, onDeletion }) {
   })
 
   return (
-    <div>
-      <h2>{shop.name}</h2>
+    <div className='item-container'>
       {shop.items.map(item => <Item key={item.id} item={item} onDeletion={onDeletion}/>)}
     </div>
   )
