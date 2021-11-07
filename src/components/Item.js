@@ -21,7 +21,13 @@ function Item({ item, onDeletion }) {
 
   return (
     <div className='item'>
-      <h3>{`${month} ${monthDay}`} {name} <span>{category}</span></h3>
+      <div>
+        <p>{`${month} ${monthDay}`}</p>
+      </div>
+      <div>
+        <h3>{name}</h3>
+        <aside>{category}</aside>
+      </div>
       <p>{`${cost} gp`}</p>
       <p>{`${pounds} lbs`}</p>
       <p>{desc}</p>
