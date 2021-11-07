@@ -3,13 +3,15 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 function Navbar() {
   const activeStyle = {
+    fontSize: '1.5rem',
     textDecoration: 'none',
     color: '#f15a08'
   };
 
   const notActiveStyle = {
     textDecoration: 'none',
-    color: '#867d73'
+    color: '#867d73',
+    fontSize: '1.5rem'
   }
 
   return (
