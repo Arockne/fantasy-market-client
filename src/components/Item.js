@@ -25,7 +25,7 @@ function Item({ item, onDeletion }) {
       <p>{`${cost} gp`}</p>
       <p>{`${pounds} lbs`}</p>
       <p>{desc}</p>
-      <div>
+      <div className='item-buttons'>
         <Link to={`/item/edit/${id}`}>Edit</Link>
         <button
           onClick={handleDelete}
