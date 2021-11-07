@@ -1,9 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Shop({ shop }) {
   const {name, id} = shop
-  return <Link to={`/shops/${id}`}>{name}</Link>
+
+  const activeStyle = {
+    color: '#639861'
+  }
+  const notActiveStyle = {
+    color: '#c06039'
+  }
+  return <NavLink 
+    to={`/shops/${id}`}
+    style={({ isActive }) => 
+    isActive ? activeStyle : notActiveStyle
+    }
+  >{name}</NavLink>
 }
 
 export default Shop
