@@ -6,10 +6,12 @@ function Shop({ shop }) {
 
   const activeStyle = {
     color: '#2a4129',
-    fontSize: '1.5rem'
+    fontSize: '1.5rem',
+    padding: '.5rem'
   }
   const notActiveStyle = {
-    color: '#e3b6a4'
+    color: '#e3b6a4',
+    padding: '.5rem'
   }
   return <NavLink 
     to={`/shops/${id}`}
