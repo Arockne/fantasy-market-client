@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom'
 
 function Shops({ shops }) {
   return (
-    <div>
-      <nav>
+    <div className='shops'>
+      <nav className="shop-nav">
         {shops.map(shop => <Shop key={shop.id} shop={shop}/>)}
       </nav>
       <Outlet />
