@@ -17,6 +17,8 @@ header {
 
 .shops {
   display: flex;
+  width: 75%;
+  margin: auto;
 }
 
 .shop-nav {
@@ -38,4 +40,17 @@ form {
 label {
   font-size: 1.2rem;
   margin-top: 2%
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
 }
