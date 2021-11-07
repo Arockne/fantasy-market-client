@@ -5,10 +5,11 @@ function Shop({ shop }) {
   const {name, id} = shop
 
   const activeStyle = {
-    color: '#639861'
+    color: '#2a4129',
+    fontSize: '1.5rem'
   }
   const notActiveStyle = {
-    color: '#c06039'
+    color: '#e3b6a4'
   }
   return <NavLink 
     to={`/shops/${id}`}
