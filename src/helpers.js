@@ -38,7 +38,7 @@ export function emptyItemFormFields() {
     name: '',
     shopId: 1,
     cost: '',
-    category: '',
+    category: 'Potion',
     desc: '',
     pounds: ''
   }

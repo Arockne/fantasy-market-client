@@ -24,7 +24,7 @@ function Item({ item, onDeletion }) {
       <div>
         <p>{`${month} ${monthDay}`}</p>
       </div>
-      <div>
+      <div className='item-name-container'>
         <h3>{name}</h3>
         <aside>{category}</aside>
       </div>
