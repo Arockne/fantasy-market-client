@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import { 
   changeCamelKeysToSnake, 
   emptyItemFormFields,
@@ -10,6 +10,8 @@ function ItemForm({ shops, handleItem }) {
   const [form, setForm] = useState(emptyItemFormFields())
   const {id} = useParams()
   const {pathname} = useLocation()
+  const navigate = useNavigate()
+  console.log(navigate)
   const editingItem = pathname === `/item/edit/${id}`; 
 
   useEffect(() => {
@@ -50,6 +52,7 @@ function ItemForm({ shops, handleItem }) {
       .then(resp => resp.json())
       .then(data => {
         handleItem(data)
+        navigate(`/shops/${data.shop_id}`)
         setForm(emptyItemFormFields())
       })
     } else {
@@ -63,6 +66,7 @@ function ItemForm({ shops, handleItem }) {
       .then(resp => resp.json())
       .then(data => {
         handleItem(data)
+        navigate(`/shops/${data.shop_id}`)
         setForm(emptyItemFormFields())
       })
     }
