@@ -32,10 +32,10 @@ function Item({ item, onDeletion }) {
       <p>{`${pounds} lbs`}</p>
       <p>{desc}</p>
       <div className='item-buttons'>
-        <Link to={`/item/edit/${id}`}>Edit</Link>
+        <Link to={`/item/edit/${id}`}>✏️</Link>
         <button
           onClick={handleDelete}
-        >Delete</button>
+        >🗑️</button>
       </div>
     </div>
   )
