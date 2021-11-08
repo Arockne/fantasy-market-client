@@ -7,7 +7,8 @@ function Shop({ shop }) {
   const activeStyle = {
     color: '#2a4129',
     fontSize: '1.5rem',
-    padding: '.5rem'
+    padding: '1rem',
+    width: '100%'
   }
   const notActiveStyle = {
     color: '#e3b6a4',
