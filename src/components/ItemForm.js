@@ -100,6 +100,7 @@ function ItemForm({ shops, handleItem }) {
         name='cost'
         onChange={handleFormChange}
         value={form.cost}
+        min='0'
       />
 
       <label htmlFor='pounds'>Pounds: </label>
@@ -109,6 +110,7 @@ function ItemForm({ shops, handleItem }) {
         name='pounds'
         onChange={handleFormChange}
         value={form.pounds}
+        min='0'
       />
 
       <label htmlFor='desc'>Item Description: </label>
