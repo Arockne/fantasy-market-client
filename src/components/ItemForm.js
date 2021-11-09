@@ -11,7 +11,6 @@ function ItemForm({ shops, handleItem }) {
   const {id} = useParams()
   const {pathname} = useLocation()
   const navigate = useNavigate()
-  console.log(navigate)
   const editingItem = pathname === `/item/edit/${id}`; 
 
   useEffect(() => {
