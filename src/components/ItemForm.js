@@ -21,7 +21,8 @@ function ItemForm({ shops, handleItem }) {
         data = changeSnakeKeysToCamel(data)
         setForm(data)
       })
-    } else {
+    } 
+    return () => {
       setForm(emptyItemFormFields())
     }
   }, [id, pathname, editingItem])
