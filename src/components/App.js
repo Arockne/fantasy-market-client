@@ -24,7 +24,7 @@ function App() {
     shopMatch.items = shopMatch.items.filter(({id}) => {
       return id !== deletedItem.id
     })
-    const shopsWithUpdate = shops.map(shop => updateMatchingId(shop, deletedItem))
+    const shopsWithUpdate = shops.map(shop => updateMatchingId(shop, shopMatch))
     setShops(shopsWithUpdate)
   }
 
