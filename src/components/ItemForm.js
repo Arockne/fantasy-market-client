@@ -40,14 +40,14 @@ function ItemForm({ shops, handleItem }) {
   function handleSubmit(e) {
     e.preventDefault()
     const shopToUpdate = shops.find(shop => shop.id === form.shopId)
-    const postForm = changeCamelKeysToSnake(form)
+    const formBody = changeCamelKeysToSnake(form)
     if (editingItem) {
       fetch(`http://localhost:9292/items/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(postForm)
+        body: JSON.stringify(formBody)
       })
       .then(resp => resp.json())
       .then(updatedItem => {
@@ -67,7 +67,7 @@ function ItemForm({ shops, handleItem }) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(postForm)
+        body: JSON.stringify(formBody)
       })
       .then(resp => resp.json())
       .then(additionalItem => {
