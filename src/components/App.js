@@ -4,7 +4,6 @@ import Main from './Main'
 import Shops from './Shops'
 import Items from './Items'
 import ItemForm from './ItemForm'
-import { updateMatchingId, findShop } from '../helpers'
 
 function App() {
   const [shops, setShops] = useState([])
@@ -20,36 +19,6 @@ function App() {
   }
 
   function handleShopUpdate(shopWithUpdate) {
-    const shopsWithUpdate = shops.map(shop => {
-      if (shop.id === shopWithUpdate.id) {
-        return shopWithUpdate;
-      }
-      return shop;
-    })
-    setShops(shopsWithUpdate)
-  }
-
-  function onDeletion(shopWithUpdate) {
-    const shopsWithUpdate = shops.map(shop => {
-      if (shop.id === shopWithUpdate.id) {
-        return shopWithUpdate;
-      }
-      return shop;
-    })
-    setShops(shopsWithUpdate)
-  }
-
-  function handleAdditionalItem(shopWithUpdate) {
-    const shopsWithUpdate = shops.map(shop => {
-      if (shop.id === shopWithUpdate.id) {
-        return shopWithUpdate;
-      }
-      return shop;
-    })
-    setShops(shopsWithUpdate)
-  }
-
-  function handleUpdateItem(shopWithUpdate) {
     const shopsWithUpdate = shops.map(shop => {
       if (shop.id === shopWithUpdate.id) {
         return shopWithUpdate;
