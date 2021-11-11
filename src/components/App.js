@@ -80,7 +80,7 @@ function App() {
             />
             <Route
               path=':id'
-              element={<Items shops={shops} onDeletion={onDeletion}/>}
+              element={<Items shops={shops} handleShopUpdate={handleShopUpdate}/>}
             />
           </Route>  
           <Route 
