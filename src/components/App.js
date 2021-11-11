@@ -19,12 +19,13 @@ function App() {
     return <p>Loading...</p>
   }
 
-  function onDeletion(deletedItem) {
-    const shopMatch = findShop(shops, deletedItem);
-    shopMatch.items = shopMatch.items.filter(({id}) => {
-      return id !== deletedItem.id
+  function onDeletion(shopWithUpdate) {
+    const shopsWithUpdate = shops.map(shop => {
+      if (shop.id === shopWithUpdate.id) {
+        return shopWithUpdate;
+      }
+      return shop;
     })
-    const shopsWithUpdate = shops.map(shop => updateMatchingId(shop, shopMatch))
     setShops(shopsWithUpdate)
   }
 
