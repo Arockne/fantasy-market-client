@@ -70,9 +70,10 @@ function ItemForm({ shops, handleItem }) {
         body: JSON.stringify(postForm)
       })
       .then(resp => resp.json())
-      .then(data => {
-        handleItem(data)
-        navigate(`/shops/${data.shop_id}`)
+      .then(additionalItem => {
+        shopToUpdate.items = [ ...shopToUpdate.items, additionalItem]
+        handleItem(shopToUpdate)
+        navigate(`/shops/${shopToUpdate.id}`)
         setForm(emptyItemFormFields())
       })
     }

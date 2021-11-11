@@ -29,10 +29,13 @@ function App() {
     setShops(shopsWithUpdate)
   }
 
-  function handleAdditionalItem(item) {
-    const shopMatch = findShop(shops, item);
-    shopMatch.items = [ ...shopMatch.items, item ]
-    const shopsWithUpdate = shops.map(shop => updateMatchingId(shop, shopMatch))
+  function handleAdditionalItem(shopWithUpdate) {
+    const shopsWithUpdate = shops.map(shop => {
+      if (shop.id === shopWithUpdate.id) {
+        return shopWithUpdate;
+      }
+      return shop;
+    })
     setShops(shopsWithUpdate)
   }
 
