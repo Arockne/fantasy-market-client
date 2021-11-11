@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { creationDate } from '../helpers'
 
-function Item({ item, onDeletion }) {
+function Item({ item, onDeletion, shop }) {
   const { name, desc, pounds, cost, created_at, category, id } = item
   const {month, monthDay} = creationDate(created_at)
 
@@ -15,7 +15,8 @@ function Item({ item, onDeletion }) {
     })
     .then(resp => resp.json())
     .then(data => {
-      onDeletion(data)
+      shop.items = shop.items.filter(item => item.id !== data.id)
+      onDeletion(shop)
     })
   }
 
