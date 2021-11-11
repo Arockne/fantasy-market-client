@@ -19,6 +19,16 @@ function App() {
     return <p>Loading...</p>
   }
 
+  function handleShopUpdate(shopWithUpdate) {
+    const shopsWithUpdate = shops.map(shop => {
+      if (shop.id === shopWithUpdate.id) {
+        return shopWithUpdate;
+      }
+      return shop;
+    })
+    setShops(shopsWithUpdate)
+  }
+
   function onDeletion(shopWithUpdate) {
     const shopsWithUpdate = shops.map(shop => {
       if (shop.id === shopWithUpdate.id) {
@@ -75,11 +85,11 @@ function App() {
           </Route>  
           <Route 
             path='item/new'
-            element={<ItemForm shops={shops} handleItem={handleAdditionalItem}/>}
+            element={<ItemForm shops={shops} handleShopUpdate={handleShopUpdate}/>}
           />
           <Route
             path='/item/edit/:id'
-            element={<ItemForm shops={shops} handleItem={handleUpdateItem}/>}
+            element={<ItemForm shops={shops} handleShopUpdate={handleShopUpdate}/>}
           />
         </Route>
       </Routes>
