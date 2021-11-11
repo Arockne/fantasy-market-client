@@ -39,7 +39,7 @@ function ItemForm({ shops, handleItem }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-
+    const shopToUpdate = shops.find(shop => shop.id === form.shopId)
     const postForm = changeCamelKeysToSnake(form)
     if (editingItem) {
       fetch(`http://localhost:9292/items/${id}`, {
