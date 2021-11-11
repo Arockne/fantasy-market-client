@@ -14,8 +14,8 @@ function Item({ item, onDeletion, shop }) {
       }
     })
     .then(resp => resp.json())
-    .then(data => {
-      shop.items = shop.items.filter(item => item.id !== data.id)
+    .then(deletedItem => {
+      shop.items = shop.items.filter(item => item.id !== deletedItem.id)
       onDeletion(shop)
     })
   }
