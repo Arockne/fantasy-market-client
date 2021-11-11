@@ -39,7 +39,7 @@ function ItemForm({ shops, handleItem }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    const shopToUpdate = shops.find(shop => shop.id === form.shopId)
+    const shop = shops.find(shop => shop.id === form.shopId)
     const formBody = changeCamelKeysToSnake(form)
     if (editingItem) {
       fetch(`http://localhost:9292/items/${id}`, {
@@ -51,14 +51,14 @@ function ItemForm({ shops, handleItem }) {
       })
       .then(resp => resp.json())
       .then(updatedItem => {
-        shopToUpdate.items = shopToUpdate.items.map( item => {
+        shop.items = shop.items.map( item => {
           if (item.id === updatedItem.id) {
             return updatedItem;
           }
           return item
         })
-        handleItem(shopToUpdate)
-        navigate(`/shops/${shopToUpdate.id}`)
+        handleItem(shop)
+        navigate(`/shops/${shop.id}`)
         setForm(emptyItemFormFields())
       })
     } else {
@@ -71,9 +71,9 @@ function ItemForm({ shops, handleItem }) {
       })
       .then(resp => resp.json())
       .then(additionalItem => {
-        shopToUpdate.items = [ ...shopToUpdate.items, additionalItem]
-        handleItem(shopToUpdate)
-        navigate(`/shops/${shopToUpdate.id}`)
+        shop.items = [ ...shop.items, additionalItem]
+        handleItem(shop)
+        navigate(`/shops/${shop.id}`)
         setForm(emptyItemFormFields())
       })
     }
