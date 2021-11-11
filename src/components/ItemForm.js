@@ -50,9 +50,15 @@ function ItemForm({ shops, handleItem }) {
         body: JSON.stringify(postForm)
       })
       .then(resp => resp.json())
-      .then(data => {
-        handleItem(data)
-        navigate(`/shops/${data.shop_id}`)
+      .then(updatedItem => {
+        shopToUpdate.items = shopToUpdate.items.map( item => {
+          if (item.id === updatedItem.id) {
+            return updatedItem;
+          }
+          return item
+        })
+        handleItem(shopToUpdate)
+        navigate(`/shops/${shopToUpdate.id}`)
         setForm(emptyItemFormFields())
       })
     } else {

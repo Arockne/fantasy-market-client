@@ -36,10 +36,13 @@ function App() {
     setShops(shopsWithUpdate)
   }
 
-  function handleUpdateItem(updatedItem) {
-    const shopMatch = findShop(shops, updatedItem)
-    shopMatch.items = shopMatch.items.map(item => updateMatchingId(item, updatedItem))
-    const shopsWithUpdate = shops.map(shop => updateMatchingId(shop, shopMatch))
+  function handleUpdateItem(shopWithUpdate) {
+    const shopsWithUpdate = shops.map(shop => {
+      if (shop.id === shopWithUpdate.id) {
+        return shopWithUpdate;
+      }
+      return shop;
+    })
     setShops(shopsWithUpdate)
   }
 
