@@ -9,7 +9,7 @@ function Items({ shops, onDeletion }) {
 
   return (
     <div className='item-container'>
-      {shop.items.map(item => <Item key={item.id} item={item} onDeletion={onDeletion}/>)}
+      {shop.items.map(item => <Item key={item.id} item={item} shop={shop} onDeletion={onDeletion}/>)}
     </div>
   )
 }
